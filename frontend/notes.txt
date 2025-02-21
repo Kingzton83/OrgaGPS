@@ -1,0 +1,28 @@
+To make better:
+
+app/page.tsx
+{ features.slice(4, 8).map(( feats: any, index: number = 0 ) => (
+          feats.id % 2 === 0 ? (
+          <li className="even" key={ feats.id }>
+            <p>{ feats.txt }</p>
+            {/* <div className="img"></div> */}
+            <img
+              src="/images/image{index + 1}.jpg"
+              alt="img"
+              // width={10}
+              // height={10}
+              />
+          </li>
+          ) : (
+            <li className="odd" key={ feats.id }>
+            {/* <div className="img"></div> */}
+            <img
+              src="/images/image{index + 1}.jpg"
+              alt="img"
+              // width={10}
+              // height={10}
+              />
+            <p>{ feats.txt }</p>
+          </li>
+          )
+        )) }

@@ -1,0 +1,94 @@
+sudo tail -f /var/log/user-data.log
+
+sudo tail -f /var/log/syslog
+
+sudo tail -f /var/log/nginx/error.log
+
+sudo tail -f /var/log/nginx/access.log
+
+sudo docker logs backend-web-1
+
+
+
+sudo docker logs backend-db-1
+
+sudo docker logs backend-nginx-1
+
+sudo docker logs container-backend
+
+sudo docker logs container-frontend
+
+docker exec -it container-backend tail -f /usr/src/backend/logs/debug.log
+
+
+
+sudo docker stop $(sudo docker ps -aq)
+
+sudo docker rm $(sudo docker ps -aq)
+
+sudo docker rmi $(sudo docker images -q)
+
+sudo systemctl restart docker
+
+docker compose down -v && docker compose up -d --build
+
+
+sudo docker compose down -v
+
+
+
+
+
+docker system prune -a
+
+docker volume prune
+
+
+
+
+docker exec -it container-backend /bin/bash
+
+docker exec -it backend-db-1 psql -U Kingzton -d orgagpsdatabase
+
+
+
+
+docker network inspect app-network
+
+
+
+python manage.py dbshell
+
+
+
+
+
+python manage.py dumpdata db.Location --indent 2 > fixtures/locations.json
+
+python manage.py dumpdata db.Schedule --indent 2 > fixtures/schedules.json
+
+python manage.py test
+
+python manage.py test --verbosity 3
+
+
+
+
+python manage.py loaddata fixtures/customuser.json
+python manage.py loaddata fixtures/locations.json
+python manage.py loaddata fixtures/schedules.json
+python manage.py loaddata fixtures/permissions.json
+python manage.py test
+
+
+
+docker exec -it backend python /backend/populate_db.py
+
+
+
+
+# List processes using port 8081
+sudo lsof -i :8081
+
+# Terminate the process using port 8081
+kill -9 19424

@@ -1,0 +1,93 @@
+html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; /* Setzt eine allgemeine Schriftart */
+    box-sizing: border-box; /* Beeinflusst die Box-Model-Berechnung */
+    background-color: #fff; /* Optionaler Hintergrund */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.app-header {
+    background-color: #333;
+    color: white;
+    height: 50px;
+    display: flex;
+    justify-content: center;   /* Horizontale Zentrierung */
+    align-items: center; 
+    line-height: 50px;
+    position: fixed;
+    width: 100%;
+}
+
+.app-footer {
+    background-color: #333;
+    color: white;
+    height: 50px;
+    display: flex;
+    justify-content: center;   /* Horizontale Zentrierung */
+    align-items: center; 
+    line-height: 50px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.content-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row; /* Elemente werden nebeneinander angeordnet */
+    width: 100%;
+    height: calc(100vh - 100px); /* Höhe des Fensters minus der Höhe des Headers und Footers */
+    padding-top: 50px;
+    padding-bottom: 50px;
+    align-items: flex-start; /* Richtet die Inhalte oben in der Zeile aus */
+}
+
+.left-column {                                                      
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.right-column {
+    height: 100%;
+    flex-grow: 1;
+    background-color: #fff;
+    padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .container {
+        flex-direction: column;
+        min-height: calc(100vh); /* Vollbildhöhe minus Header und Footer */
+        display: flex;
+        flex-grow: 1;
+    }
+    
+    .app-footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .left-column,
+    .right-column {
+        width: 100%;
+    }
+}

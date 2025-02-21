@@ -1,0 +1,46 @@
+.create-form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    color: #395C6B;
+    width: 100vw;
+    padding: 5em 0;
+}
+
+.create-form > h3 {
+    margin-top: 2em;
+    text-align: center;
+}
+
+.create-form > form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.create-form > form > button {
+    align-self: center;
+}
+
+.create-form > form .input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.create-form > form .input > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.create-form > form .input > div > * {
+    height: 3em;
+    margin: 0;
+    padding: 0;
+}
+
+.create-form > form .input .labels > * {
+    padding: 0 3em;
+}

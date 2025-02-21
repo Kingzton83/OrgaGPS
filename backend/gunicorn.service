@@ -1,0 +1,12 @@
+[Unit]
+Description=gunicorn daemon for Django project
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/app/backend
+ExecStart=/app/backend/venv/bin/gunicorn --workers 3 --bind unix:/app/backend/gunicorn.sock orgagps.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

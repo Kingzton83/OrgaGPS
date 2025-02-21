@@ -1,0 +1,27 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches:
+      - main  # Oder der Branch, auf den du den Workflow anwenden möchtest
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1  # Region anpassen
+
+      - name: Run Terraform
+        run: |
+          terraform init
+          terraform apply -auto-approve
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}  # Verwende den von dir gewählten Namen

@@ -1,0 +1,12 @@
+[Unit]
+Description=GitHub Webhook Server
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/app/backend
+ExecStart=/usr/bin/python3 /app/backend/webhook-server.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
