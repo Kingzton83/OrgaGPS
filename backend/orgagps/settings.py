@@ -173,7 +173,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "orgagpsdatabase",
         "USER": "admin",
-        "PASSWORD": "dcifp24!",
+        "PASSWORD": "",
         "HOST": "db",
         "PORT": "5432",
     }
@@ -203,7 +203,7 @@ EMAIL_HOST = "smtp.ionos.de"
 EMAIL_PORT = "587"
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "info@orgagps.com"
-EMAIL_HOST_PASSWORD = "Kr!mpz4n9e"
+EMAIL_HOST_PASSWORD = ""
 
 DEFAULT_FROM_EMAIL = "noreply@orgagps.com"
 EMAIL_SUBJECT_PREFIX = "[Orgagps] "
@@ -216,7 +216,6 @@ AUTH_USER_MODEL = "db.CustomUser"
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        # Hier deine Custom Authentication auf Basis SimpleJWT:
         "accounts.authentication.CustomJWTAuthentication",
     ],
     "DEFAULT_PERMISSION_CLASSES": [
@@ -242,27 +241,25 @@ LOGGING = {
         "console": {
             "class": "logging.StreamHandler",
             "formatter": "verbose",
-            "level": "DEBUG",  # Alle Debug-Logs auch auf die Konsole schreiben
+            "level": "DEBUG",
         },
         "file": {
             "class": "logging.FileHandler",
             "filename": "/tmp/debug.log",
             "formatter": "verbose",
-            "level": "DEBUG",  # Alle Debug-Logs auch in die Datei schreiben
+            "level": "DEBUG",
         },
     },
     "root": {
         "handlers": ["console", "file"],
-        "level": "DEBUG",  # Root-Logger auf DEBUG setzen
+        "level": "DEBUG",
     },
     "loggers": {
-        # Falls du spezifische Logger für bestimmte Module konfigurieren möchtest:
         "django": {
             "handlers": ["console", "file"],
             "level": "DEBUG",
             "propagate": True,
         },
-        # Beispiel: Für dein eigenes Modul
         "accounts": {
             "handlers": ["console", "file"],
             "level": "DEBUG",
