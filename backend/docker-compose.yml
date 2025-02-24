@@ -14,7 +14,7 @@ services:
       DJANGO_SETTINGS_MODULE: orgagps.settings
       DB_NAME: orgagpsdatabase
       DB_USER: admin
-      DB_PASSWORD: dcifp24!
+      DB_PASSWORD:
       DB_HOST: db
       DB_PORT: 5432
       CELERY_BROKER_URL: amqp://guest:guest@rabbitmq:5672/
@@ -55,7 +55,7 @@ services:
     environment:
       POSTGRES_DB: orgagpsdatabase
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: dcifp24!
+      POSTGRES_PASSWORD: 
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
